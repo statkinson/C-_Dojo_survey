@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Survey</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        @model User
+        <form action="/results" method="post">
+            <h2 class="text-center display-4">Dojo Survey</h2>
+            <p>Your Name: <input type="text" asp-for="nameField"></p>
+            <span asp-validation-for="nameField" class="text-danger"></span>
+                    <p>
+                    <label>Dojo Location</label>
+                    <select asp-for="selectLocation">
+                        <span asp-validation-for="selectLocation" class="text-danger"></span>
+                        <option value = "Location">Location</option>
+                        <option value = "Seattle">Seattle</option>
+                        <option value = "San Jose">San Jose</option>
+                        <option value = "Chicago">Chicago</option>
+                        <option value = "New York">New York</option>
+                    </select>
+                    </p>
+                    <p>
+                    <label>Favorite Language</label>
+                    <select asp-for="favorLanguage">
+                        <span asp-validation-for="favorLanguage" class="text-danger"></span>
+                        <option value = "Language">Language</option>
+                        <option value = "Python">Python</option>
+                        <option value = "JavaScript">JavaScript</option>
+                        <option value = "CSS">CSS</option>
+                        <option value = "HTML">HTML</option>
+                        <option value = "C#">C#</option>
+                    </select>
+                    </p>
+                </fieldset>
+            <p>Comment (optional):</p>
+                        <textarea asp-for="commentField"></textarea>
+                        <span asp-validation-for="commentField" class="text-danger"></span>
+            <br><br>
+            <input class="btn btn-primary" type="submit" value="submit">
+        </form>
+    </div>
+</body>
+</html>
